@@ -19,7 +19,7 @@ export const io = new Server(server, {
 export const userSocketMap = {}; //{userId: socketId}
 
 // socket.io connection handler
-io.on("Connection", (socket) =>{
+io.on("connection", (socket) =>{
     const userId = socket.handshake.query.userId;
     console.log("User connected", userId);
     if(userId) userSocketMap[userId] = socket.id;
@@ -47,7 +47,7 @@ app.use("/api/messages", messageRouter)
 await connectDB();
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT,()=> console.log("Server is runnig on PORT: "+ PORT)
+server.listen(PORT,()=> console.log("Server is runnig on PORT: "+ PORT)
 );
 
   

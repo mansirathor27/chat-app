@@ -5,7 +5,7 @@ import bcrypt from "bcryptjs";
 
 
 // signup new user
-export const signup =async() =>{
+export const signup =async(req, res) =>{
     const { fullName , email, password, bio } = req.body;
 
     try {
@@ -30,7 +30,7 @@ export const signup =async() =>{
 }
 
 
-export const login = async() =>{
+export const login = async(req, res) =>{
     
     try {
         const { email, password } = req.body;
